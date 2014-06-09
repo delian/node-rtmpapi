@@ -1,0 +1,25 @@
+{
+  "name": "node-rtmpapi",
+  "version": "0.0.1",
+  "description": "Node.JS RTMP api providing an easy way of creating RTMP servers or clients",
+  "main": "rtmpApi.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/delian/node-rtmpapi.git"
+  },
+  "keywords": [
+    "adobe",
+    "rtmp",
+    "flash",
+    "server"
+  ],
+  "author": "Delian Delchev <delian.delchev@gmail.com> (http://delian.blogspot.com/)",
+  "license": "GPLv2",
+  "bugs": {
+    "url": "https://github.com/delian/node-rtmpapi/issues"
+  },
+  "homepage": "https://github.com/delian/node-rtmpapi"
+}
