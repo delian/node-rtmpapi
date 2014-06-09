@@ -19,59 +19,61 @@ Usage
 
 To use this library is simple. You just have to do:
 
-   var rtmpApi = require('node-rtmpapi');
-   var rtmpServer = rtmpApi.rtmpServer();
-   
-   var rtmpServer.createServer(function(rtmpSession) {
-      rtmpSession.msg.loop(null,{
-         "amf0cmd": function(chunk) {
-            var msg = chunk.chunk.msg;
-            switch(msg.cmd) {
-               "connect":
-                   chunk.sendSetChunkSize(4096);
-                   chunk.sendSetWindowSize(10000000);
-                   chunk.sendSetPeerBw(10000000,1);
-                   chunk.sendAmf0EncCmdMsg({
-                      cmd: "_result",
-                      transId: msg.transId,
-                      cmdObj: {
-                         fmsVer: "FMS/3,5,5,2004",
-                         capabilities: 31,
-                         mode: 1
-                      },
-                      info: {
-                         level: "status",
-                         code: "NetConnection.Connect.Success",
-                         description: "Connection succeeded.",
-                         clientId: 1337,
-                         objectEncoding: 0
-                      }
-                   });
-                   chunk.sendUserControlMsg(0,1);
-                   break;
-               "FCPublish":
-                   ....
-                   break;
-               "createStream":
-                   ....
-                   break;
-               "publish":
-                   ....
-                   break;
-               "releaseStream":
-                   ....
-                   break;
-               default:
-            }
-         },
-         "audio": function(chunk) {
-            ....
-         },
-         "video": function(chunk) {
-            ....
-         }
-      });
-   }).listen(1935);
+    
+    var rtmpApi = require('node-rtmpapi');
+    var rtmpServer = rtmpApi.rtmpServer();
+    
+    var rtmpServer.createServer(function(rtmpSession) {
+       rtmpSession.msg.loop(null,{
+          "amf0cmd": function(chunk) {
+             var msg = chunk.chunk.msg;
+             switch(msg.cmd) {
+                "connect":
+                    chunk.sendSetChunkSize(4096);
+                    chunk.sendSetWindowSize(10000000);
+                    chunk.sendSetPeerBw(10000000,1);
+                    chunk.sendAmf0EncCmdMsg({
+                       cmd: "_result",
+                       transId: msg.transId,
+                       cmdObj: {
+                          fmsVer: "FMS/3,5,5,2004",
+                          capabilities: 31,
+                          mode: 1
+                       },
+                       info: {
+                          level: "status",
+                          code: "NetConnection.Connect.Success",
+                          description: "Connection succeeded.",
+                          clientId: 1337,
+                          objectEncoding: 0
+                       }
+                    });
+                    chunk.sendUserControlMsg(0,1);
+                    break;
+                "FCPublish":
+                    ....
+                    break;
+                "createStream":
+                    ....
+                    break;
+                "publish":
+                    ....
+                    break;
+                "releaseStream":
+                    ....
+                    break;
+                default:
+             }
+          },
+          "audio": function(chunk) {
+             ....
+          },
+          "video": function(chunk) {
+             ....
+          }
+       });
+    }).listen(1935);
+
 
 
 rtmpChunk
