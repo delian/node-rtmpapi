@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/delian/node-rtmpapi/issues"
   },
-  "homepage": "https://github.com/delian/node-rtmpapi"
+  "homepage": "https://github.com/delian/node-rtmpapi",
+  "dependencies": {
+    "node-amfutils": "0.0.1"
+  }
 }
